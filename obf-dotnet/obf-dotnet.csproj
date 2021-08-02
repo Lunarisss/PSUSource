@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01E395B7-ABFA-4B69-8E6C-1460C7C0EE96}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>obf-dotnet</RootNamespace>
+    <AssemblyName>obf-dotnet</AssemblyName>
+    <TargetFrameworkVersion>v3.1</TargetFrameworkVersion>
+    <TargetFrameworkIdentifier>.NETCoreApp</TargetFrameworkIdentifier>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GParse">
+      <HintPath>..\..\..\Desktop\wgwjhg\GParse.dll</HintPath>
+    </Reference>
+    <Reference Include="Loretta">
+      <HintPath>..\..\..\Desktop\wgwjhg\Loretta.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.14\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections">
+      <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.14\System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.14\System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.14\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.14\System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.14\System.Linq.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.14\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions">
+      <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.14\System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.14\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LuaGeneration\LuaGeneration.cs" />
+    <Compile Include="Obfuscator\Bytecode\Deserializer.cs" />
+    <Compile Include="Obfuscator\Bytecode\IR\BasicBlock.cs" />
+    <Compile Include="Obfuscator\Bytecode\IR\Chunk.cs" />
+    <Compile Include="Obfuscator\Bytecode\IR\Constant.cs" />
+    <Compile Include="Obfuscator\Bytecode\IR\ConstantType.cs" />
+    <Compile Include="Obfuscator\Bytecode\IR\Instruction.cs" />
+    <Compile Include="Obfuscator\Bytecode\IR\InstructionConstantType.cs" />
+    <Compile Include="Obfuscator\Bytecode\IR\InstructionType.cs" />
+    <Compile Include="Obfuscator\Bytecode\IR\OpCode.cs" />
+    <Compile Include="Obfuscator\Bytecode\Serializer.cs" />
+    <Compile Include="Obfuscator\Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Obfuscator\Obfuscation\ChunkMap.cs" />
+    <Compile Include="Obfuscator\Obfuscation\ChunkStep.cs" />
+    <Compile Include="Obfuscator\Obfuscation\CustomInstructionData.cs" />
+    <Compile Include="Obfuscator\Obfuscation\DeserializerInstructionStep.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Generation\Compression.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Generation\Macros\LuaMacros.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Generation\NumberEquation.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Generation\PremiumScriptBuilder.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Generation\ScriptBuilder.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Generation\SuperOperators.cs" />
+    <Compile Include="Obfuscator\Obfuscation\InstructionMap.cs" />
+    <Compile Include="Obfuscator\Obfuscation\InstructionStep.cs" />
+    <Compile Include="Obfuscator\Obfuscation\ObfuscationContext.cs" />
+    <Compile Include="Obfuscator\Obfuscation\ObfuscationSettings.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\NoOpCode.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpAdd.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpAddB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpAddBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpAddC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCall.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallB0.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallB0C0.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallB0C1.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallB0C2.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallB1.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallB1C0.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallB1C1.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallB1C2.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallB2.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallC0.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallC0B2.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallC1.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallC1B2.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallC2.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCallC2B2.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpClose.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpClosure.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpClosureNU.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpConcat.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpCustom.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpDiv.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpDivB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpDivBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpDivC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpDynamicJump.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpEq.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpEqB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpEqBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpEqC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpForLoop.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpForPrep.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGe.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGeB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGeBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGeC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGetGlobal.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGetStack.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGetTable.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGetTableC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGetUpValue.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGt.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGtB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGtBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpGtC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpJump.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLe.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLeB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLeBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLeC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLen.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLoadBool.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLoadBoolC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLoadJump.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLoadK.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLoadNil.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLt.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLtB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLtBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpLtC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpMod.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpModB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpModBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpModC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpMove.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpMul.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpMulB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpMulBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpMulC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpNe.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpNeB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpNeBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpNeC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpNewTable.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpNewTableB0.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpNewTableB1.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpNot.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpPow.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpPowB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpPowBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpPowC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpReturn.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpReturnB0.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpReturnB1.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpReturnB2.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpReturnB3.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSelf.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSelfC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSetGlobal.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSetList.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSetListB0.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSetListC0.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSetTable.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSetTableB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSetTableBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSetTableC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSetUpValue.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSub.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSubB.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSubBC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSubC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpSuperOperator.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpTailCall.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpTailCallB0.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpTailCallB1.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpTest.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpTestC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpTestSet.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpTestSetC.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpTForLoop.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpUnm.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpVarArg.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\OpVarArgB0.cs" />
+    <Compile Include="Obfuscator\Obfuscation\OpCodes\VOpCode.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Security\BytecodeSecurity.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Security\IMutateCFlow.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Security\InstructionSwap.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Security\RegisterMutation.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Security\TestRemove.cs" />
+    <Compile Include="Obfuscator\Obfuscation\Security\TestSpam.cs" />
+    <Compile Include="Obfuscator\Obfuscator.cs" />
+    <Compile Include="Obfuscator\Utility\Utility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

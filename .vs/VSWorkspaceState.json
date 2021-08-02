@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\obf-dotnet",
+    "\\obf-dotnet\\Obfuscator",
+    "\\obf-dotnet\\Obfuscator\\Bytecode",
+    "\\obf-dotnet\\Obfuscator\\Bytecode\\IR",
+    "\\obf-dotnet\\Obfuscator\\Obfuscation",
+    "\\obf-dotnet\\Obfuscator\\Obfuscation\\Generation",
+    "\\obf-dotnet\\Obfuscator\\Obfuscation\\Generation\\Macros",
+    "\\obf-dotnet\\Obfuscator\\Obfuscation\\Security",
+    "\\obf-dotnet\\Obfuscator\\Utility"
+  ],
+  "SelectedNode": "\\obf-dotnet\\Obfuscator\\Obfuscation\\OpCodes\\OpAddB.cs",
+  "PreviewInSolutionExplorer": false
+}
